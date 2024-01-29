@@ -1,0 +1,9 @@
+---
+
+## Provision Wazuh
+
+- hosts: all
+  pre_tasks:
+    - import_tasks: "globals/vars.yml"
+  roles:
+    - role: wazuh

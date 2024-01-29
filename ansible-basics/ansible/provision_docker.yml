@@ -1,0 +1,19 @@
+---
+
+# Install Docker
+- hosts: docker
+  become: yes
+  pre_tasks:
+    - import_tasks: "globals/vars.yml"
+  roles:
+    - role: docker
+
+# Login to DockerHub
+- hosts: docker
+  vars_files:
+    - roles/docker/files/docker-credentials.yml
+  tasks:
+    - name: Login to DockerHub
+      docker_login:
+        username: "{{ docker_username }}"
+        password: "{{ docker_password }}"

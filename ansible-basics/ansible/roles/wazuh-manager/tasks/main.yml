@@ -1,0 +1,10 @@
+- name: Copy docker compose file to vagrant VM
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: "{{ ansible_env.HOME }}/docker-compose.yml"
+
+- name: Run Docker Compose on vagrant VM
+  ansible.builtin.shell: docker compose up -d
+  args:
+    chdir: "{{ ansible_env.HOME }}"
+    executable: /bin/bash

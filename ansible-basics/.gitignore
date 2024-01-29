@@ -1,0 +1,16 @@
+# Ignore Docker Compose generated directories
+.docker/
+.vscode/
+
+
+# Ignore (private) vagrant files
+.vagrant
+keys/
+environments/vagrant/*.log
+
+# Ignore docker env file
+.env
+
+*.crt
+*.key
+docker-credentials.yml
